@@ -10,7 +10,7 @@ const AnimatedCallButton = () => {
     <button
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative overflow-hidden bg-black text-white font-semibold p-2 rounded-full transition-all duration-300 border border-[#EAEAED] flex items-center justify-center w-[120px] h-[45px]"
+      className="relative overflow-hidden bg-black text-white font-semibold p-2 rounded-full transition-all duration-300 border border-[#EAEAED] flex items-center justify-center w-[120px] h-[45px] cursor-pointer"
     >
       {/* Default Text */}
       <AnimatePresence mode="wait">
