@@ -6,6 +6,8 @@ import AnimatedCallButton from "./ui/AnimatedCallButton";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
+import Lottie from "lottie-react";
+import Wave from "@/public/animations/wave-animation.json";
 
 const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,10 +15,12 @@ const NavigationBar = () => {
   return (
     <>
       <nav
-        className=" fixed flex flex-row justify-between items-center rounded-full px-10 h-[70px]
+        className=" fixed flex flex-row justify-between items-center rounded-full px-6 md:px-10 h-[70px]
     w-[95%] top-4 left-1/2 -translate-x-1/2 xl:w-[85%] backdrop-blur-lg shadow-md"
       >
-        <h1>Vwindi.</h1>
+        <h1 className="flex flex-row items-center gap-2 font-semibold">
+          <Lottie animationData={Wave} loop className="w-10 h-10" /> Vwindi.
+        </h1>
 
         {/* Desktop Navigation Links */}
         <div className="lg:flex flex-row lg:gap-8 md:gap-[5px] px-2.5 py-1 w-fit justify-center hidden">
@@ -35,7 +39,7 @@ const NavigationBar = () => {
         </div>
 
         {/* Navigation buttons */}
-        <div className="flex flex-row gap-4 items-center">
+        <div className="flex flex-row gap-2 items-center">
           {/* Get in touch Button */}
           <div className="hidden lg:flex bg-white p-px rounded-full shadow-md group h-fit font-semibold">
             <button
