@@ -16,10 +16,10 @@ const NavigationBar = () => {
     <>
       <nav
         className=" fixed flex flex-row justify-between items-center rounded-full px-6 md:px-10 h-[70px]
-    w-[95%] top-4 left-1/2 -translate-x-1/2 xl:w-[85%] backdrop-blur-lg shadow-md"
+    w-[95%] top-4 left-1/2 -translate-x-1/2 xl:w-[85%] backdrop-blur-lg shadow-md z-50"
       >
         <h1 className="flex flex-row items-center gap-2 font-semibold">
-          <Lottie animationData={Wave} loop className="w-10 h-10" /> Vwindi.
+          <Lottie animationData={Wave} loop className="w-10 h-10" /> Vwindi
         </h1>
 
         {/* Desktop Navigation Links */}

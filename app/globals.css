@@ -33,3 +33,13 @@ body {
   @apply text-[#676767] hover:text-black py-2 px-4 border border-transparent
    hover:border-[#bababa] rounded-full;
 }
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
