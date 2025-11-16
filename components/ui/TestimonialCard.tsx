@@ -16,7 +16,7 @@ export default function TestimonialCard({
   role,
 }: Testimonial) {
   return (
-    <div className="rounded-2xl border-neutral-800 p-6 bg-neutral-900/40 backdrop-blur-sm flex flex-col gap-4">
+    <div className="rounded-2xl h-full border-neutral-800 p-6 bg-neutral-900/40 backdrop-blur-sm flex flex-col gap-4">
       {/* Logo */}
       <Image
         src={logo}

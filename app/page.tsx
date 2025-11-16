@@ -7,13 +7,6 @@ import { useRef, useState } from "react";
 
 const testimonials: Testimonial[] = [
   {
-    logo: "/acs.svg",
-    text: "What's particularly impressive is their ability to think beyond just the immediate project, sharing knowledge that benefits our company.",
-    authorImage: "/silas.png",
-    name: "Amaka Andak",
-    role: "Marketing Manager, ACS",
-  },
-  {
     logo: "/wpengine.svg",
     text: "They were one of the first to work with headless platforms—and they've done it exceptionally well.",
     authorImage: "/kelsey.png",
@@ -62,8 +55,8 @@ const Page = () => {
       <main>
         <h1
           className="text-[30px] text-center flex 
-        md:text-[50px] lg:text-[65px]
-        flex-col items-center justify-center w-[95%] leading-tight"
+        md:text-[50px] lg:text-[55px]
+        flex-col items-center justify-center w-[95%] leading-tight font-semibold"
         >
           <span>Treat yourself to a</span>
 
@@ -145,8 +138,11 @@ const Page = () => {
       </main>
 
       {/* Testimonial section */}
-      <section className="mt-[150px]">
-        <h2 className="flex flex-wrap items-center justify-center gap-2 text-[30px] font-medium">
+      <section className="mt-[150px] relative py-[100px]">
+        <div className="hidden lg:flex absolute -top-10 left-1/2 -translate-x-1/2 w-full h-full -z-1">
+          <Image src={"/shadowLine.avif"} fill alt="" />{" "}
+        </div>
+        <h2 className="flex flex-wrap items-center justify-center gap-2 text-[30px] font-semibold">
           Why Clients{" "}
           <div className="relative h-10 w-10 md:h-16 md:w-16 inline-block">
             <Image
@@ -169,15 +165,15 @@ const Page = () => {
         </h2>
 
         <div className="w-full py-10">
-          <div className="max-w-6xl mx-auto px-6 py-2 bg-[#c5c5c5] md:bg-transparent rounded-full md:rounded-lg relative">
+          <div className="max-w-6xl mx-auto py-2 relative">
             <div
-              className="hidden md:flex absolute top-1/2 left-1/2 -translate-1/2 w-[400px] 
-            h-[400px] bg-[#c5c5c5] rounded-full"
+              className="flex absolute left-1/2 -translate-x-1/2
+            h-[250px] w-full bg-[#c5c5c5] -bottom-6  rounded-4xl -z-1"
             ></div>
             <div
               ref={scrollRef}
               onScroll={handleScroll}
-              className="flex gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-2 md:overflow-visible"
+              className="flex gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-3 md:justify-center md:overflow-visible px-4"
             >
               {testimonials.map((t, i) => (
                 <div
@@ -191,7 +187,7 @@ const Page = () => {
           </div>
 
           {/* Scroll indicators */}
-          <div className="flex justify-center gap-2 mt-6 md:hidden">
+          <div className="flex justify-center gap-2 mt-2 md:hidden z-20">
             {testimonials.map((_, i) => (
               <button
                 key={i}
@@ -207,48 +203,112 @@ const Page = () => {
       </section>
 
       {/* Projects section */}
-      <section className="mt-[50px] bg-white rounded-2xl px-2.5 py-10 text-left shadow-lg">
-        <div>
-          <h2 className="text-[35px] font-semibold text-left">Our Projects</h2>
-          <p className="mt-3">
-            The Vwindi Hall Of Fame: Featuring Brands and Projects of all shapes
-            and sizes.
-          </p>
-
-          <button
-            className="bg-linear-to-tr from-black to-[#838383] font-semibold shadow-md
-           text-white px-6 py-3 rounded-full mt-5 cursor-pointer"
-          >
-            View All Projects
-          </button>
-        </div>
-
-        {/* Projects */}
-        <div className="mt-[50px]">
-          {/* Project Card */}
-          <div>
-            <div className="relative h-[250px] w-full border rounded-4xl overflow-hidden">
-              <Image src={"/heart.avif"} alt="" fill className="object-cover" />
-            </div>
-            <div className="py-1 px-4 mt-3">
-              <h3 className="text-[20px] font-semibold">Decked Out</h3>
-              <p>
-                Decked Out is a modern, interactive card-game app featuring
-                multiple fun, social and spicy game modes. Designed to elevate
-                parties, dates, hangouts, and group experiences...
+      <section className="mt-[50px] bg-white rounded-4xl px-2.5 py-[100px] text-left shadow-lg">
+        {/* Holder */}
+        <div className="max-w-[1285px] mx-auto">
+          <div className="flex flex-col gap-2 md:flex-row justify-between ">
+            <div>
+              <h2 className="text-[35px] md:text-[40px] font-semibold text-left">
+                Our Projects
+              </h2>
+              <p className="mt-3 md:w-[70%]">
+                The Vwindi Hall Of Fame: Featuring Brands and Projects of all
+                shapes and sizes.
               </p>
+            </div>
 
-              {/* Tags */}
-              <div className="flex flex-row flex-wrap gap-4 mt-5">
-                <small className="px-4 py-1 bg-yellow-50">
-                  Mobile Development
-                </small>
-                <small className="px-4 py-1 bg-yellow-50">UI/UX Design</small>
-                <small className="px-4 py-1 bg-yellow-50">Entertainment</small>
-                <small className="px-4 py-1 bg-yellow-50">Naij</small>
-                {/* country */}
+            <button
+              className="bg-linear-to-tr from-black to-[#838383] font-semibold shadow-md
+           text-white px-6 py-3 h-fit rounded-full mt-5 cursor-pointer self-end"
+            >
+              View All Projects
+            </button>
+          </div>
+
+          {/* Projects */}
+          <div className="mt-[50px] grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Project Card */}
+            <div className="h-fit">
+              <div className="relative h-[250px] md:h-[350px] w-full border rounded-4xl overflow-hidden">
+                <Image
+                  src={"/heart.avif"}
+                  alt=""
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="py-1 px-4 mt-3">
+                <h3 className="text-[20px] font-semibold">Decked Out</h3>
+                <p>
+                  Decked Out is a modern, interactive card-game app featuring
+                  multiple fun, social and spicy game modes. Designed to elevate
+                  parties, dates, hangouts, and group experiences...
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-row flex-wrap gap-4 mt-5">
+                  <small className="px-4 py-1 bg-yellow-50">
+                    Mobile Development
+                  </small>
+                  <small className="px-4 py-1 bg-yellow-50">UI/UX Design</small>
+                  <small className="px-4 py-1 bg-yellow-50">
+                    Entertainment
+                  </small>
+                  <small className="px-4 py-1 bg-yellow-50">Naij</small>
+                  {/* country */}
+                </div>
               </div>
             </div>
+
+            {/* Second Card */}
+            <div className="h-full">
+              <div className="relative h-[250px] w-full border rounded-4xl overflow-hidden md:h-[400px]">
+                <Image
+                  src={"/heart.avif"}
+                  alt=""
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="py-1 px-4 mt-3">
+                <h3 className="text-[20px] font-semibold">Decked Out</h3>
+                <p>
+                  Decked Out is a modern, interactive card-game app featuring
+                  multiple fun, social and spicy game modes. Designed to elevate
+                  parties, dates, hangouts, and group experiences...
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-row flex-wrap gap-4 mt-5">
+                  <small className="px-4 py-1 bg-yellow-50">
+                    Mobile Development
+                  </small>
+                  <small className="px-4 py-1 bg-yellow-50">UI/UX Design</small>
+                  <small className="px-4 py-1 bg-yellow-50">
+                    Entertainment
+                  </small>
+                  <small className="px-4 py-1 bg-yellow-50">Naij</small>
+                  {/* country */}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Services Section */}
+      <section className="mt-[50px] py-[100px]">
+        <div>
+          {/* Title and what we do */}
+          <div>
+            <p>Our Services</p>
+            <h2>What we do...</h2>
+
+            <p className="mt-[30px]">
+              All the digital and educational solutions you need..{" "}
+              <span>in one agency</span>. We work with you from concept to
+              launch, and beyond, ensuring your success at every step.
+            </p>
           </div>
         </div>
       </section>
