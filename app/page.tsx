@@ -1,318 +1,298 @@
 "use client";
 
-import Icon from "@/components/svg/Icon";
-import TestimonialCard, { Testimonial } from "@/components/ui/TestimonialCard";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { FiArrowUpRight, FiBookOpen, FiCode, FiCpu } from "react-icons/fi";
 
-const testimonials: Testimonial[] = [
-  {
-    logo: "/wpengine.svg",
-    text: "They were one of the first to work with headless platforms—and they've done it exceptionally well.",
-    authorImage: "/kelsey.png",
-    name: "Kelsey Oliver",
-    role: "Marketing Manager, WPEngine",
-  },
-  {
-    logo: "/amplifidor.svg",
-    text: "The team is highly responsive, attentive, and collaborative. They ask insightful questions and act like part of our team.",
-    authorImage: "/faisal.png",
-    name: "Faisal Alqahtani",
-    role: "CEO, Amplifidor",
-  },
-  {
-    logo: "/amplifidor.svg",
-    text: "The team is highly responsive, attentive, and collaborative. They ask insightful questions and act like part of our team.",
-    authorImage: "/faisal.png",
-    name: "Faisal Alqahtani",
-    role: "CEO, Amplifidor",
-  },
-];
-
-const Page = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleScroll = () => {
-    if (!scrollRef.current) return;
-    const scrollLeft = scrollRef.current.scrollLeft;
-    const cardWidth = scrollRef.current.scrollWidth / testimonials.length;
-    const index = Math.round(scrollLeft / cardWidth);
-    setActiveIndex(index);
-  };
-
-  const scrollToIndex = (index: number) => {
-    if (!scrollRef.current) return;
-    const cardWidth = scrollRef.current.scrollWidth / testimonials.length;
-    scrollRef.current.scrollTo({
-      left: cardWidth * index,
-      behavior: "smooth",
-    });
-  };
-
+const Hero = () => {
   return (
-    <div className="py-[70px] text-center">
-      <main>
-        <h1
-          className="text-[30px] text-center flex 
-        md:text-[50px] lg:text-[55px]
-        flex-col items-center justify-center w-[95%] leading-tight font-semibold"
-        >
-          <span>Treat yourself to a</span>
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 px-6 overflow-hidden bg-white text-center">
+      {/* Windy Background Glow */}
+      <div className="wind-glow top-0 left-1/4" />
+      <div className="wind-glow bottom-0 right-1/4 opacity-50" style={{ animationDelay: '-10s' }} />
 
-          <span className="flex flex-wrap items-center justify-center gap-2">
-            Design
-            <div className="relative h-10 w-10 md:h-16 md:w-16 inline-block">
-              <Image
-                src="/plusSpan.png"
-                alt="plus icon"
-                fill
-                className="object-contain"
-              />
-            </div>
-            Development
-          </span>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+        className="max-w-5xl z-10"
+      >
+        <div className="mb-6 inline-block bg-white/60 backdrop-blur-xl border border-black/5 px-6 py-2 rounded-full shadow-sm text-sm font-bold uppercase tracking-widest text-[#676767]">
+          VWINDI AGENCY & ACADEMY
+        </div>
 
-          <span
-            style={{
-              textShadow:
-                "0 0 5px rgba(138, 43, 226, 0.7), 0 0 2px rgba(255, 105, 180, 0.6)",
-            }}
-            className="relative inline-block bg-linear-to-r from-pink-400 via-blue-500 to-blue-500 bg-clip-text text-transparent font-medium tracking-wider"
-          >
-            partnership
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 259 19"
-              className="absolute left-0 -bottom-2 w-full"
-            >
-              <defs>
-                <linearGradient
-                  id="underline-gradient"
-                  x1="-62.084"
-                  x2="178.932"
-                  y1="-27.922"
-                  y2="204.601"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stopColor="#8BD8FC" />
-                  <stop offset="0.333" stopColor="#449AFA" />
-                  <stop offset="0.667" stopColor="#7D6BF9" />
-                  <stop offset="1" stopColor="#CC6BF9" />
-                </linearGradient>
-              </defs>
-              <path
-                stroke="url(#underline-gradient)"
-                strokeLinecap="round"
-                strokeWidth="3"
-                d="M2 14.766C83-3.107 229.5 37.236 257 2"
-              />
-            </svg>
-          </span>
+        <h1 className="text-[9vw] md:text-[6.5vw] font-bold leading-[1.05] tracking-tight text-[#111111] mb-8">
+          Engineering that ships.<br />
+          <span className="gradient-text">Education that endures.</span>
         </h1>
-
-        <p className="mt-[50px] text-[#464646]">
-          Full-suite development design && education partners. We're the all in
-          one solution for{" "}
-          <span className="p-1 bg-gray-300 rounded-lg text-black">
-            enterprises
-          </span>
-          ,{" "}
-          <span className="p-1 bg-gray-300 rounded-lg text-black">schools</span>{" "}
-          &&{" "}
-          <span className="p-1 bg-gray-300 rounded-lg text-black">
-            startups
-          </span>
+        
+        <p className="max-w-2xl mx-auto text-lg md:text-xl text-[#676767] leading-relaxed mb-12 font-medium">
+          A fullstack engineering agency and teaching institution. We specialize in <span className="text-black font-bold">AI design</span>, <span className="text-black font-bold">web & mobile dev</span>, and <span className="text-black font-bold">private tutoring</span> to empower the next generation.
         </p>
 
-        {/* Buttons */}
-        <div className="mt-[50px] flex flex-row gap-3 items-center justify-center">
-          <button className="px-5 py-3 border-[0.5] border-[#cecece] hover:bg-[#ebebeb] rounded-full cursor-pointer">
-            Why Vwindi?
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <button className="bg-black text-white px-8 py-4 rounded-full font-bold hover:bg-[#449AFA] transition-all transform hover:scale-105 shadow-xl">
+            Our Services
           </button>
-          <button className="px-5 py-3 bg-white shadow-md rounded-full cursor-pointer">
-            Start a project
+          <button className="bg-white text-black border border-black/10 px-8 py-4 rounded-full font-bold shadow-sm hover:bg-gray-50 transition-all">
+            Book a Consultation
           </button>
         </div>
-      </main>
+      </motion.div>
+    </section>
+  );
+};
 
-      {/* Testimonial section */}
-      <section className="mt-[150px] relative py-[100px]">
-        <div className="hidden lg:flex absolute -top-10 left-1/2 -translate-x-1/2 w-full h-full -z-1">
-          <Image src={"/shadowLine.avif"} fill alt="" />{" "}
+const HowWeHelp = () => {
+  const services = [
+    {
+      title: "AI-Powered Design",
+      desc: "Leveraging the latest artificial intelligence tools to craft breathtaking, dynamic, and user-centric interfaces rapidly.",
+      icon: <FiCpu className="text-4xl text-purple-500" />,
+      gradient: "from-purple-500/20 to-transparent",
+    },
+    {
+      title: "Web & Mobile Dev",
+      desc: "Fullstack engineering for scalable web platforms and mobile applications, built for performance and growth.",
+      icon: <FiCode className="text-4xl text-blue-500" />,
+      gradient: "from-blue-500/20 to-transparent",
+    },
+    {
+      title: "Private Tech Tutoring",
+      desc: "1-on-1 industry-led tutoring for individuals looking to master coding, design, and software engineering.",
+      icon: <FiBookOpen className="text-4xl text-cyan-500" />,
+      gradient: "from-cyan-500/20 to-transparent",
+    }
+  ];
+
+  return (
+    <section className="py-32 px-6 bg-[#fdfdfd] relative">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-20">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-[#676767] mb-4">Services</h2>
+          <h3 className="text-4xl md:text-5xl font-bold tracking-tight">How We Help</h3>
+          <p className="mt-4 text-[#676767] text-lg">Solutions designed to build, scale, and educate.</p>
         </div>
-        <h2 className="flex flex-wrap items-center justify-center gap-2 text-[30px] font-semibold">
-          Why Clients{" "}
-          <div className="relative h-10 w-10 md:h-16 md:w-16 inline-block">
-            <Image
-              src="/heart.avif"
-              alt="plus icon"
-              fill
-              className="object-contain"
-            />
-            <span
-              className="px-4 py-1 bg-white rounded-full shadow-md text-[15px]
-            absolute -top-6 left-2 -rotate-6 -z-1"
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {services.map((service, i) => (
+            <motion.div 
+              key={i}
+              whileHover={{ y: -10 }}
+              className="glass-card rounded-[2.5rem] p-10 relative overflow-hidden group cursor-pointer"
             >
-              Love!
-            </span>
-          </div>{" "}
-          <span className="relative">
-            Vwindi{" "}
-            <Icon className="text-green-500 w-12 h-auto absolute -top-4 -right-7" />
-          </span>
+              <div className={`absolute top-0 left-0 w-full h-full bg-gradient-to-b ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
+              <div className="bg-white/80 w-20 h-20 rounded-2xl flex items-center justify-center mb-8 shadow-sm border border-black/5 relative z-10 group-hover:scale-110 transition-transform">
+                {service.icon}
+              </div>
+              <h4 className="text-2xl font-bold mb-4 relative z-10">{service.title}</h4>
+              <p className="text-[#676767] leading-relaxed relative z-10">{service.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Partners = () => {
+  const partners = [
+    { name: "EduLearn Academy", icon: "🎓" },
+    { name: "FinTrack App", icon: "📈" },
+    { name: "Global High School", icon: "🏫" },
+    { name: "Acme Startup", icon: "🚀" },
+    { name: "HealthSync Portal", icon: "⚕️" },
+    { name: "TechCamp Institute", icon: "💻" }
+  ];
+
+  return (
+    <section className="py-24 bg-white border-y border-black/5 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 mb-12">
+        <h2 className="text-center text-[#111111] font-bold uppercase tracking-[0.2em] text-[10px] opacity-40">
+          Who We Partner With
         </h2>
+      </div>
 
-        <div className="w-full py-10">
-          <div className="max-w-6xl mx-auto py-2 relative">
+      <div className="relative overflow-hidden flex whitespace-nowrap">
+        <div className="animate-marquee-partners flex flex-none items-center">
+          {[...partners, ...partners, ...partners].map((partner, i) => (
             <div
-              className="flex absolute left-1/2 -translate-x-1/2
-            h-[250px] w-full bg-[#c5c5c5] -bottom-6  rounded-4xl -z-1"
-            ></div>
-            <div
-              ref={scrollRef}
-              onScroll={handleScroll}
-              className="flex gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-3 md:justify-center md:overflow-visible px-4"
+              key={i}
+              className="flex items-center gap-3 text-3xl md:text-5xl font-bold tracking-tighter text-[#111111] opacity-30 hover:opacity-100 transition-opacity duration-500 cursor-default px-12 md:px-24"
             >
-              {testimonials.map((t, i) => (
-                <div
-                  key={i}
-                  className="shrink-0 w-full md:w-auto md:shrink snap-center"
-                >
-                  <TestimonialCard {...t} />
-                </div>
-              ))}
+              <span className="text-4xl">{partner.icon}</span>
+              {partner.name}
             </div>
-          </div>
-
-          {/* Scroll indicators */}
-          <div className="flex justify-center gap-2 mt-2 md:hidden z-20">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => scrollToIndex(i)}
-                className={`h-2 rounded-full transition-all ${
-                  activeIndex === i ? "w-8 bg-gray-800" : "w-2 bg-gray-300"
-                }`}
-                aria-label={`Go to testimonial ${i + 1}`}
-              />
-            ))}
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
+  );
+};
 
-      {/* Projects section */}
-      <section className="mt-[50px] bg-white rounded-4xl px-2.5 py-[100px] text-left shadow-lg">
-        {/* Holder */}
-        <div className="max-w-[1285px] mx-auto">
-          <div className="flex flex-col gap-2 md:flex-row justify-between ">
-            <div>
-              <h2 className="text-[35px] md:text-[40px] font-semibold text-left">
-                Our Projects
-              </h2>
-              <p className="mt-3 md:w-[70%]">
-                The Vwindi Hall Of Fame: Featuring Brands and Projects of all
-                shapes and sizes.
-              </p>
-            </div>
-
-            <button
-              className="bg-linear-to-tr from-black to-[#838383] font-semibold shadow-md
-           text-white px-6 py-3 h-fit rounded-full mt-5 cursor-pointer self-end"
-            >
-              View All Projects
-            </button>
-          </div>
-
-          {/* Projects */}
-          <div className="mt-[50px] grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* Project Card */}
-            <div className="h-fit">
-              <div className="relative h-[250px] md:h-[350px] w-full border rounded-4xl overflow-hidden">
-                <Image
-                  src={"/heart.avif"}
-                  alt=""
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="py-1 px-4 mt-3">
-                <h3 className="text-[20px] font-semibold">Decked Out</h3>
-                <p>
-                  Decked Out is a modern, interactive card-game app featuring
-                  multiple fun, social and spicy game modes. Designed to elevate
-                  parties, dates, hangouts, and group experiences...
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-row flex-wrap gap-4 mt-5">
-                  <small className="px-4 py-1 bg-yellow-50">
-                    Mobile Development
-                  </small>
-                  <small className="px-4 py-1 bg-yellow-50">UI/UX Design</small>
-                  <small className="px-4 py-1 bg-yellow-50">
-                    Entertainment
-                  </small>
-                  <small className="px-4 py-1 bg-yellow-50">Naij</small>
-                  {/* country */}
-                </div>
-              </div>
-            </div>
-
-            {/* Second Card */}
-            <div className="h-full">
-              <div className="relative h-[250px] w-full border rounded-4xl overflow-hidden md:h-[400px]">
-                <Image
-                  src={"/heart.avif"}
-                  alt=""
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="py-1 px-4 mt-3">
-                <h3 className="text-[20px] font-semibold">Decked Out</h3>
-                <p>
-                  Decked Out is a modern, interactive card-game app featuring
-                  multiple fun, social and spicy game modes. Designed to elevate
-                  parties, dates, hangouts, and group experiences...
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-row flex-wrap gap-4 mt-5">
-                  <small className="px-4 py-1 bg-yellow-50">
-                    Mobile Development
-                  </small>
-                  <small className="px-4 py-1 bg-yellow-50">UI/UX Design</small>
-                  <small className="px-4 py-1 bg-yellow-50">
-                    Entertainment
-                  </small>
-                  <small className="px-4 py-1 bg-yellow-50">Naij</small>
-                  {/* country */}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Services Section */}
-      <section className="mt-[50px] py-[100px]">
-        <div>
-          {/* Title and what we do */}
+const Projects = () => {
+  return (
+    <section className="py-32 px-6 bg-[#f9f9f9]">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
           <div>
-            <p>Our Services</p>
-            <h2>What we do...</h2>
-
-            <p className="mt-[30px]">
-              All the digital and educational solutions you need..{" "}
-              <span>in one agency</span>. We work with you from concept to
-              launch, and beyond, ensuring your success at every step.
+            <h2 className="text-4xl md:text-6xl font-bold text-[#111111] tracking-tight mb-4">
+              Our Work
+            </h2>
+            <p className="max-w-md text-[#676767] text-lg font-medium">
+              Transforming ideas into digital reality through robust engineering and stunning AI-driven design.
             </p>
           </div>
+          <button className="bg-black text-white px-8 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition-transform flex items-center gap-2">
+            View All Projects <FiArrowUpRight />
+          </button>
         </div>
-      </section>
-    </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {[
+            { 
+              title: "EduTech Platform", 
+              desc: "A comprehensive learning management system tailored for interactive coding lessons.", 
+              img: "/heart.avif",
+              tags: ["Web Dev", "Education", "React"]
+            },
+            { 
+              title: "Startup FinApp", 
+              desc: "Mobile-first financial dashboard built with modern React Native for iOS and Android.", 
+              img: "/heart.avif",
+              tags: ["Mobile", "Fintech", "App"]
+            },
+            { 
+              title: "AI Design Audit", 
+              desc: "Complete visual overhaul of an enterprise SaaS tool utilizing AI-assisted UI/UX methodologies.", 
+              img: "/heart.avif",
+              tags: ["Design", "AI", "SaaS"]
+            },
+            { 
+              title: "School Portal", 
+              desc: "A secure and fast portal for parents and students to track learning milestones.", 
+              img: "/heart.avif",
+              tags: ["Web Dev", "Schools", "Fullstack"]
+            }
+          ].map((project, i) => (
+            <motion.div 
+              key={i}
+              whileHover={{ y: -10 }}
+              className="group cursor-pointer bg-white rounded-[2.5rem] p-4 shadow-sm border border-black/5"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden rounded-[2rem] bg-gray-50 mb-8">
+                <Image 
+                  src={project.img} 
+                  alt={project.title} 
+                  fill 
+                  className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                />
+              </div>
+              <div className="px-4 pb-4">
+                <h3 className="text-2xl font-bold text-[#111111] mb-2">{project.title}</h3>
+                <p className="text-[#676767] mb-6 line-clamp-2 font-medium">{project.desc}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map(tag => (
+                    <span key={tag} className="text-[10px] uppercase bg-gray-100 px-4 py-1.5 rounded-full text-black font-bold tracking-widest">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const MeetTheTeam = () => {
+  return (
+    <section className="py-32 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-20">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-[#676767] mb-4">The DNA</h2>
+          <h3 className="text-4xl md:text-5xl font-bold tracking-tight">Meet the Vwindi Team</h3>
+          <p className="mt-4 text-[#676767] text-lg max-w-2xl mx-auto">
+            Led by a solo fullstack visionary, supported by a network of part-time expert friends and instructors dedicated to development and teaching.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-8">
+          <div className="glass-card border border-black/10 rounded-[2.5rem] p-8 w-full max-w-sm text-center">
+            <div className="w-32 h-32 mx-auto bg-gradient-to-tr from-blue-400 to-purple-500 rounded-full mb-6 p-1">
+              <div className="w-full h-full bg-white rounded-full flex items-center justify-center text-3xl">👨‍💻</div>
+            </div>
+            <h4 className="text-2xl font-bold mb-2">Founder & Lead Engineer</h4>
+            <p className="text-[#676767] font-medium">Fullstack Dev & Educator</p>
+          </div>
+          <div className="glass-card border border-black/10 rounded-[2.5rem] p-8 w-full max-w-sm text-center opacity-70">
+            <div className="w-32 h-32 mx-auto bg-gray-100 rounded-full mb-6 p-1 flex items-center justify-center text-3xl">
+              🤝
+            </div>
+            <h4 className="text-2xl font-bold mb-2">Expert Instructors</h4>
+            <p className="text-[#676767] font-medium">Part-time Specialists & Tutors</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const CTAForm = () => {
+  return (
+    <section className="py-32 px-6 bg-[#f9f9f9] relative overflow-hidden">
+      <div className="wind-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30" />
+      <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-16 items-center relative z-10">
+        <div className="flex-1 text-center lg:text-left">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+            Get a free <br /> project check-up
+          </h2>
+          <p className="text-xl text-[#676767] mb-8">
+            Whether you need a new web app, AI design, or private tech tutoring, we&apos;re here to help you grow.
+          </p>
+          <div className="glass-card p-8 rounded-3xl inline-block text-left">
+             <h4 className="font-bold mb-2 text-lg">Book a 30-min Intro Call</h4>
+             <p className="text-[#676767] mb-4">Let&apos;s discuss your goals.</p>
+             <button className="bg-black text-white w-full py-4 rounded-full font-bold">Find a Time</button>
+          </div>
+        </div>
+        
+        <div className="flex-1 w-full glass-card p-10 rounded-[3rem] shadow-xl border border-white/60">
+          <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+            <input type="text" placeholder="Full Name" className="w-full bg-white/50 border border-black/10 rounded-xl px-6 py-4 outline-none focus:border-blue-500" />
+            <input type="email" placeholder="Email Address" className="w-full bg-white/50 border border-black/10 rounded-xl px-6 py-4 outline-none focus:border-blue-500" />
+            <select className="w-full bg-white/50 border border-black/10 rounded-xl px-6 py-4 outline-none focus:border-blue-500 text-[#676767]">
+              <option value="">I am interested in...</option>
+              <option value="dev">Web/Mobile Development</option>
+              <option value="tutoring">Private Tech Tutoring</option>
+              <option value="design">AI Design</option>
+            </select>
+            <textarea placeholder="Tell us more about your project or learning goals..." rows={4} className="w-full bg-white/50 border border-black/10 rounded-xl px-6 py-4 outline-none focus:border-blue-500 resize-none"></textarea>
+            <button className="bg-black text-white px-8 py-4 rounded-full font-bold hover:bg-[#449AFA] transition-colors mt-4">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+import Footer from "@/components/Footer";
+
+const Page = () => {
+  return (
+    <main className="bg-white">
+      <Hero />
+      <Partners />
+      <HowWeHelp />
+      <Projects />
+      <MeetTheTeam />
+      <CTAForm />
+      <Footer />
+    </main>
   );
 };
 
