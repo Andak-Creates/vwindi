@@ -151,13 +151,13 @@ const NavigationBar = () => {
         {/* Navigation buttons */}
         <div className="flex flex-row gap-2 items-center">
           {/* Get in touch Button */}
-          <div className="hidden lg:flex p-px rounded-full group h-fit font-semibold">
+          <Link href="/contact" className="hidden lg:flex">
             <button
-              className="bg-[#111111] text-white px-6 py-2 rounded-full cursor-pointer hover:bg-[#449AFA] transition-colors duration-300"
+              className="bg-white text-[#111111] px-6 py-2 rounded-full cursor-pointer border border-black/10 hover:bg-gray-50 transition-all duration-300 font-semibold text-sm h-[45px] flex items-center justify-center"
             >
               Get in touch
             </button>
-          </div>
+          </Link>
 
           {/* Book a call button */}
           <AnimatedCallButton />
@@ -234,12 +234,13 @@ const NavigationBar = () => {
 
           {/* Get in touch Button */}
           <div className="flex w-full mt-10">
-            <button
-              className="bg-[#111111] text-white w-full py-4 rounded-full text-xl font-bold cursor-pointer transition-transform hover:scale-105 shadow-xl"
-              onClick={() => setIsOpen(false)}
-            >
-              Get in touch
-            </button>
+            <Link href="/contact" className="w-full" onClick={() => setIsOpen(false)}>
+              <button
+                className="bg-[#111111] text-white w-full py-4 rounded-full text-xl font-bold cursor-pointer transition-transform hover:scale-105 shadow-xl"
+              >
+                Get in touch
+              </button>
+            </Link>
           </div>
         </div>
       </div>

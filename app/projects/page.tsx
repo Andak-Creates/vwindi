@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 const WorkHero = () => {
   return (
-    <section className="relative pt-48 pb-20 px-6 overflow-hidden bg-[#fdfdfd] text-center border-b border-black/5">
+    <section className="relative pt-48 pb-20 px-20 overflow-hidden bg-[#fdfdfd] text-center border-b border-black/5">
       <div className="wind-glow top-0 right-1/4 opacity-30" />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -34,7 +34,7 @@ const ProjectGrid = () => {
   ];
 
   return (
-    <section className="py-32 px-6 bg-white">
+    <section className="py-32 px-20 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {projects.map((project, i) => (
@@ -67,7 +67,7 @@ const ProjectGrid = () => {
 
 const ExploreServices = () => {
   return (
-    <section className="py-32 px-6 bg-[#fdfdfd] border-t border-black/5">
+    <section className="py-32 px-20 bg-[#fdfdfd] border-t border-black/5">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Explore our services</h2>
         <p className="text-lg text-[#676767] mb-16">The tools and expertise we offer to build your success.</p>

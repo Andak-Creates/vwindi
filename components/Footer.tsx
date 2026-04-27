@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="py-32 px-6 bg-white border-t border-black/5 overflow-hidden">
+    <footer className="py-32 px-20 bg-white border-t border-black/5 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
         <div className="mt-10 w-full mb-20 relative overflow-hidden flex whitespace-nowrap">
           <div className="animate-marquee-footer flex flex-none items-center">

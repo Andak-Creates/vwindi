@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 
 export default function EnterprisePage() {
   return (
-    <main className="bg-white pt-20">
+    <main className="bg-white">
       <ServiceHero 
         badge="Enterprise"
         title={<>Composable Without <br /> the <span className="gradient-text">Chaos.</span></>}
@@ -21,7 +21,7 @@ export default function EnterprisePage() {
           title="Architecture With Intent." 
           desc="We don't just write code, we engineer systems designed to last and scale with your business." 
         />
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="max-w-7xl mx-auto px-20 grid grid-cols-1 md:grid-cols-3 gap-6">
           <FeatureCardDark icon="⚛️" title="React Ecosystem" desc="State of the art frontend architecture using React, Next.js, and server components for unmatched speed." />
           <FeatureCardDark icon="⚙️" title="Headless APIs" desc="Decoupled backend logic allowing your marketing site, web app, and mobile app to run on one brain." />
           <FeatureCardDark icon="☁️" title="Cloud Native" desc="Deployed on modern serverless edge infrastructure ensuring global availability and auto-scaling." />
@@ -33,7 +33,7 @@ export default function EnterprisePage() {
           title="Architecture That Fits Together." 
           desc="Say goodbye to monolithic spaghetti code. We use modular, composable pieces." 
         />
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="max-w-7xl mx-auto px-20 grid grid-cols-1 md:grid-cols-3 gap-6">
           <FeatureCardLight icon="🧩" title="Microservices" desc="Independent services that can be scaled, updated, or replaced without affecting the rest of the system." />
           <FeatureCardLight icon="🔄" title="CI/CD Pipelines" desc="Automated testing and deployment workflows that ensure code quality and rapid feature releases." />
           <FeatureCardLight icon="🛡️" title="Enterprise Security" desc="Bank-grade security protocols, OAuth integrations, and strict role-based access control." />
@@ -45,7 +45,7 @@ export default function EnterprisePage() {
           title="Scale Without the Sprawl." 
           desc="Maintain clean codebases and predictable performance even as your user base multiplies." 
         />
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="max-w-7xl mx-auto px-20 grid grid-cols-1 md:grid-cols-3 gap-6">
           <FeatureCardDark icon="📊" title="Data Lakes" desc="Centralised repositories that allow you to store all your structured and unstructured data at any scale." />
           <FeatureCardDark icon="⚡" title="Edge Caching" desc="Distributing your content globally to ensure your users experience sub-100ms load times anywhere." />
           <FeatureCardDark icon="🔍" title="Observability" desc="Deep tracing and logging to instantly identify bottlenecks and preemptively resolve issues." />

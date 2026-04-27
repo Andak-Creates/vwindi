@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 const Hero = () => {
   return (
-    <section className="relative pt-48 pb-20 px-6 overflow-hidden bg-white text-center">
+    <section className="relative pt-48 pb-20 px-20 overflow-hidden bg-white text-center">
       <div className="wind-glow top-0 left-1/4 opacity-40" />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -26,7 +26,7 @@ const Hero = () => {
 
 const DNA = () => {
   return (
-    <section className="py-32 px-6 bg-[#fdfdfd] relative">
+    <section className="py-32 px-20 bg-[#fdfdfd] relative">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-24 tracking-tight">Vwindi&apos;s DNA</h2>
         
@@ -67,7 +67,7 @@ const DNA = () => {
 
 const Team = () => {
   return (
-    <section className="py-32 px-6 bg-white">
+    <section className="py-32 px-20 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Meet the Team</h2>

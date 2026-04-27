@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export const ServiceHero = ({ badge, title, subtitle, stats }: { badge: string, title: React.ReactNode, subtitle: string, stats: { value: string, label: string }[] }) => {
   return (
-    <section className="relative pt-48 pb-20 px-6 overflow-hidden bg-[#fdfdfd] text-center border-b border-black/5">
+    <section className="relative pt-48 pb-20 px-20 overflow-hidden bg-[#fdfdfd] text-center border-b border-black/5">
       <div className="wind-glow top-0 left-1/2 -translate-x-1/2 opacity-20" />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -42,7 +42,7 @@ export const ServiceHero = ({ badge, title, subtitle, stats }: { badge: string, 
 };
 
 export const SectionHeader = ({ title, desc }: { title: string, desc: string }) => (
-  <div className="max-w-7xl mx-auto px-6 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+  <div className="max-w-7xl mx-auto px-20 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
     <h2 className="text-4xl md:text-5xl font-bold tracking-tight max-w-xl">{title}</h2>
     <p className="text-[#676767] font-medium max-w-md">{desc}</p>
   </div>
@@ -80,7 +80,7 @@ export const FeatureCardLight = ({ icon, title, desc, colSpan = 1 }: { icon: str
 );
 
 export const RelatedProjects = ({ projects }: { projects: { title: string, desc: string, img: string }[] }) => (
-  <section className="py-32 px-6 bg-[#f9f9f9] border-t border-black/5">
+  <section className="py-32 px-20 bg-[#f9f9f9] border-t border-black/5">
     <div className="max-w-7xl mx-auto">
       <h2 className="text-4xl font-bold tracking-tight mb-12">Related Projects</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

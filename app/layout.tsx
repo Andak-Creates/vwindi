@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 import CustomCursor from "@/components/CustomCursor";
+import ViewportRuler from "@/components/ViewportRuler";
 
 export const metadata: Metadata = {
   title: "Vwindi | Teaching & Development Agency",
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${geistMono.variable} antialiased selection:bg-[#dcfc04] selection:text-black`}
       >
+        <ViewportRuler />
         <CustomCursor />
         <SmoothScroll>
           <NavigationBar />

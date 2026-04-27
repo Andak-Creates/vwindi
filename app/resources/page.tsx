@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 const Showreel = () => {
   return (
-    <section className="relative pt-48 pb-20 px-6 overflow-hidden bg-white text-center">
+    <section className="relative pt-48 pb-20 px-20 overflow-hidden bg-white text-center">
       <div className="wind-glow top-1/4 left-1/2 -translate-x-1/2 opacity-20" />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -44,7 +44,7 @@ const ResourcesGrid = () => {
   ];
 
   return (
-    <section className="py-32 px-6 bg-[#f9f9f9] border-t border-black/5">
+    <section className="py-32 px-20 bg-[#f9f9f9] border-t border-black/5">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold tracking-tight mb-16">Latest Insights & Resources</h2>
         
