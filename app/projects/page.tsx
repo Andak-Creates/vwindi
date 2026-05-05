@@ -5,17 +5,17 @@ import Footer from "@/components/Footer";
 
 const WorkHero = () => {
   return (
-    <section className="relative pt-48 pb-20 px-20 overflow-hidden bg-[#fdfdfd] text-center border-b border-black/5">
+    <section className="relative pt-32 pb-20 px-10 md:px-20 overflow-hidden bg-[#fdfdfd] text-center border-b border-black/5">
       <div className="wind-glow top-0 right-1/4 opacity-30" />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         className="max-w-4xl mx-auto z-10 relative"
       >
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[#111111] mb-6">
+        <h1 className="text-5xl md:text-[55px] font-bold leading-[1.01] tracking-tight text-[#111111] mb-8">
           Our Projects
         </h1>
-        <p className="text-xl text-[#676767] max-w-2xl mx-auto font-medium">
+        <p className="max-w-2xl mx-auto text-lg md:text-md text-[#676767] leading-relaxed mb-5 font-medium">
           Discover how we enhance our clients&apos; digital presence through scalable web apps and AI-driven interfaces.
         </p>
       </motion.div>
@@ -34,7 +34,7 @@ const ProjectGrid = () => {
   ];
 
   return (
-    <section className="py-32 px-20 bg-white">
+    <section className="py-32 px-10 md:px-20 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {projects.map((project, i) => (
@@ -67,7 +67,7 @@ const ProjectGrid = () => {
 
 const ExploreServices = () => {
   return (
-    <section className="py-32 px-20 bg-[#fdfdfd] border-t border-black/5">
+    <section className="py-32 px-10 md:px-20 bg-[#fdfdfd] border-t border-black/5">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Explore our services</h2>
         <p className="text-lg text-[#676767] mb-16">The tools and expertise we offer to build your success.</p>

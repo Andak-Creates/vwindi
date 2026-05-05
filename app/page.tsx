@@ -6,7 +6,7 @@ import { FiArrowUpRight, FiBookOpen, FiCode, FiCpu } from "react-icons/fi";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 px-20 overflow-hidden bg-white text-center">
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-0 md:pt-0 px-10 md:px-20 overflow-hidden bg-white text-center">
       {/* Windy Background Glow */}
       <div className="wind-glow top-0 left-1/4" />
       <div
@@ -20,31 +20,38 @@ const Hero = () => {
         transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
         className="max-w-5xl z-10"
       >
-        <div className="mb-6 inline-block bg-white/60 backdrop-blur-xl border border-black/5 px-6 py-2 rounded-full shadow-sm text-sm font-bold uppercase tracking-widest text-[#676767]">
+        <div className="mb-5 inline-block bg-white/60 backdrop-blur-xl border border-black/5 px-6 py-2 rounded-full shadow-sm text-[10px] font-bold uppercase tracking-widest text-[#676767]">
           VWINDI AGENCY & ACADEMY
         </div>
 
-        <h1 className="text-[9vw] md:text-[6.5vw] font-bold leading-[1.05] tracking-tight text-[#111111] mb-8">
+        <h1 className="text-[9vw] md:text-[65px] font-bold leading-[1.01] tracking-tight text-[#111111] mb-8">
           Engineering that ships.
           <br />
           <span className="gradient-text">Education that endures.</span>
         </h1>
 
-        <p className="max-w-2xl mx-auto text-lg md:text-xl text-[#676767] leading-relaxed mb-12 font-medium">
-          A fullstack engineering agency and teaching institution. We specialize
-          in <span className="text-black font-bold">AI design</span>,{" "}
+        <p className="max-w-2xl mx-auto text-lg md:text-md text-[#676767] leading-relaxed mb-5 font-medium">
+          A fullstack engineering agency and teaching institution. We build, We
+          teach and We grow. We specialize in{" "}
+          <span className="text-black font-bold">AI design</span>,{" "}
           <span className="text-black font-bold">web & mobile development</span>
           , and <span className="text-black font-bold">private tutoring</span>{" "}
           to empower the next generation.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <button className="bg-black text-white px-8 py-4 rounded-full font-bold hover:bg-[#449AFA] transition-all transform hover:scale-105 shadow-xl">
-            Our Services
-          </button>
-          <button className="bg-white text-black border border-black/10 px-8 py-4 rounded-full font-bold shadow-sm hover:bg-gray-50 transition-all">
-            Book a Consultation
-          </button>
+          <Link
+            href="/about"
+            className="bg-black text-white px-8 py-2 rounded-full hover:bg-[#449AFA] transition-all transform hover:scale-105 shadow-xl"
+          >
+            Why VWINDI?
+          </Link>
+          <Link
+            href={"/contact"}
+            className="bg-white text-black border border-black/10 px-8 py-2 rounded-full shadow-sm hover:bg-gray-50 transition-all  hover:scale-105"
+          >
+            Start a project
+          </Link>
         </div>
       </motion.div>
     </section>
@@ -74,15 +81,15 @@ const HowWeHelp = () => {
   ];
 
   return (
-    <section className="py-32 px-20 bg-[#fdfdfd] relative">
+    <section className="py-32 px-10 md:px-20 bg-[#fdfdfd] relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-[#676767] mb-4">
+          <p className="text-sm font-bold uppercase tracking-widest text-[#676767] mb-4">
             Services
-          </h2>
-          <h3 className="text-4xl md:text-5xl font-bold tracking-tight">
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             How We Help
-          </h3>
+          </h2>
           <p className="mt-4 text-[#676767] text-lg">
             Solutions designed to build, scale, and educate.
           </p>
@@ -127,7 +134,7 @@ const Partners = () => {
 
   return (
     <section className="py-24 bg-white border-y border-black/5 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-20 mb-12">
+      <div className="max-w-7xl mx-auto px-10 md:px-20 mb-12">
         <h2 className="text-center text-[#111111] font-bold uppercase tracking-[0.2em] text-[10px] opacity-40">
           Who We Partner With
         </h2>
@@ -152,7 +159,7 @@ const Partners = () => {
 
 const Projects = () => {
   return (
-    <section className="py-32 px-20 bg-[#f9f9f9]">
+    <section className="py-32 px-10 md:px-20 bg-[#f9f9f9]">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
           <div>
@@ -164,9 +171,12 @@ const Projects = () => {
               and stunning AI-driven design.
             </p>
           </div>
-          <button className="bg-black text-white px-8 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition-transform flex items-center gap-2">
+          <Link
+            href={"/projects"}
+            className="bg-black text-white px-8 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition-transform flex items-center gap-2"
+          >
             View All Projects <FiArrowUpRight />
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -237,7 +247,7 @@ const Projects = () => {
 
 const MeetTheTeam = () => {
   return (
-    <section className="py-32 px-20 bg-white">
+    <section className="py-32 px-10 md:px-20 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-sm font-bold uppercase tracking-widest text-[#676767] mb-4">
@@ -282,7 +292,7 @@ const MeetTheTeam = () => {
 
 const CTAForm = () => {
   return (
-    <section className="py-32 px-20 bg-[#f9f9f9] relative overflow-hidden">
+    <section className="py-32 px-10 md:px-20 bg-[#f9f9f9] relative overflow-hidden">
       <div className="wind-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30" />
       <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-16 items-center relative z-10">
         <div className="flex-1 text-center lg:text-left">
@@ -341,6 +351,7 @@ const CTAForm = () => {
 };
 
 import Footer from "@/components/Footer";
+import Link from "next/link";
 
 const Page = () => {
   return (

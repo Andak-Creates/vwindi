@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { FiMail, FiPhone, FiMapPin, FiChevronRight, FiCalendar } from "react-icons/fi";
+import Link from "next/link";
 import NavigationBar from "@/components/NavigationBar";
 import Footer from "@/components/Footer";
 
@@ -16,7 +17,7 @@ const ContactPage = () => {
       <NavigationBar />
       
       {/* Contact Hero Section */}
-      <section className="pt-40 pb-20 px-20 max-w-7xl mx-auto">
+      <section className="pt-32 pb-20 px-10 md:px-20 max-w-7xl mx-auto">
         <div className="flex flex-col-reverse lg:flex-row gap-12 items-start">
           
           {/* Left Column: Form */}
@@ -33,7 +34,7 @@ const ContactPage = () => {
                     className="object-contain"
                    />
                 </div>
-                <h1 className="text-6xl md:text-7xl font-bold tracking-tight text-[#111111]">
+                <h1 className="text-5xl md:text-[55px] font-bold tracking-tight text-[#111111] leading-[1.01]">
                   Take a <span className="text-[#449AFA]">Seat</span>
                 </h1>
               </div>
@@ -251,10 +252,12 @@ const ContactPage = () => {
                      </h2>
                    </div>
                    
-                   <button className="bg-[#111111] text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-3 group">
-                     <FiCalendar className="group-hover:rotate-12 transition-transform" />
-                     Book a Call
-                   </button>
+                   <Link href="/book" className="w-full">
+                     <button className="w-full bg-[#111111] text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-3 group">
+                       <FiCalendar className="group-hover:rotate-12 transition-transform" />
+                       Book a Call
+                     </button>
+                   </Link>
                 </div>
               </motion.div>
 
@@ -276,7 +279,7 @@ const ContactPage = () => {
 
       {/* Get in touch section */}
       <section className="py-24 bg-[#F9F9F9]">
-        <div className="max-w-7xl mx-auto px-20 text-center">
+        <div className="max-w-7xl mx-auto px-10 md:px-20 text-center">
           <h2 className="text-5xl font-bold mb-16 tracking-tight">Get in touch</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -12,14 +12,16 @@ import { FiCode, FiCpu, FiBookOpen } from "react-icons/fi";
 const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<string | null>(null);
+  const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<string | null>(
+    null,
+  );
 
   return (
     <>
-      <nav
-        className="fixed flex flex-row justify-between items-center rounded-full px-6 md:px-10 h-[70px]
+    <nav
+      className="fixed flex flex-row justify-between items-center rounded-full px-10 md:px-20 h-[70px]
     w-[95%] top-4 left-1/2 -translate-x-1/2 xl:w-[85%] backdrop-blur-md bg-white/60 border border-black/5 shadow-lg z-50"
-      >
+    >
         <Link href="/">
           <h1 className="flex flex-row items-center gap-2 font-bold text-xl tracking-tighter text-[#111111] hover:opacity-70 transition-opacity cursor-pointer">
             VWINDI
@@ -28,17 +30,23 @@ const NavigationBar = () => {
 
         {/* Desktop Navigation Links */}
         <div className="lg:flex flex-row lg:gap-8 md:gap-[5px] px-2.5 py-1 w-fit justify-center items-center hidden font-medium h-full">
-          <Link className="text-[#676767] hover:text-black transition-colors duration-200" href={"/about"}>
+          <Link
+            className="text-[#676767] hover:text-black transition-colors duration-200"
+            href={"/about"}
+          >
             About Vwindi
           </Link>
-          
-          <div 
+
+          <div
             className="relative flex items-center h-full"
             onMouseEnter={() => setIsServicesOpen(true)}
             onMouseLeave={() => setIsServicesOpen(false)}
           >
             <div className="flex flex-row items-center gap-2 text-[#676767] hover:text-black transition-colors duration-200 cursor-pointer">
-              Services <IoIosArrowDown className={`transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
+              Services{" "}
+              <IoIosArrowDown
+                className={`transition-transform duration-300 ${isServicesOpen ? "rotate-180" : ""}`}
+              />
             </div>
 
             {/* Dropdown Menu */}
@@ -53,29 +61,62 @@ const NavigationBar = () => {
                 >
                   {/* Industries */}
                   <div className="flex-1">
-                    <motion.h3 
-                      initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }}
+                    <motion.h3
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 }}
                       className="text-sm font-medium text-[#676767] mb-4"
                     >
                       Industries:
                     </motion.h3>
                     <div className="flex gap-4">
                       {[
-                        { title: "Enterprise", desc: "Transformation at scale", icon: "🏢", color: "from-blue-100 to-blue-50", href: "/services/enterprise" },
-                        { title: "Startup", desc: "Disruption meets scalability", icon: "🚀", color: "from-purple-100 to-purple-50", href: "/services/startup" },
-                        { title: "E-commerce", desc: "Performance & personalisation", icon: "🛍️", color: "from-cyan-100 to-cyan-50", href: "/services/ecommerce" }
+                        {
+                          title: "Enterprise",
+                          desc: "Transformation at scale",
+                          icon: "🏢",
+                          color: "from-blue-100 to-blue-50",
+                          href: "/services/enterprise",
+                        },
+                        {
+                          title: "Startup",
+                          desc: "Disruption meets scalability",
+                          icon: "🚀",
+                          color: "from-purple-100 to-purple-50",
+                          href: "/services/startup",
+                        },
+                        {
+                          title: "E-commerce",
+                          desc: "Performance & personalisation",
+                          icon: "🛍️",
+                          color: "from-cyan-100 to-cyan-50",
+                          href: "/services/ecommerce",
+                        },
                       ].map((item, i) => (
-                        <Link href={item.href} key={i} className="flex-1 block group" onClick={() => setIsServicesOpen(false)}>
-                          <motion.div 
-                            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 + (i * 0.05) }}
+                        <Link
+                          href={item.href}
+                          key={i}
+                          className="flex-1 block group"
+                          onClick={() => setIsServicesOpen(false)}
+                        >
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.15 + i * 0.05 }}
                             whileHover={{ y: -5, scale: 1.02 }}
                             className="h-full bg-white rounded-3xl p-5 hover:shadow-xl transition-all cursor-pointer border border-black/5"
                           >
-                            <div className={`h-24 bg-gradient-to-br ${item.color} rounded-2xl mb-4 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform duration-500 shadow-inner`}>
+                            <div
+                              className={`h-24 bg-gradient-to-br ${item.color} rounded-2xl mb-4 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform duration-500 shadow-inner`}
+                            >
                               {item.icon}
                             </div>
-                            <h4 className="font-bold text-[#111111] text-lg">{item.title}</h4>
-                            <p className="text-xs text-[#676767] mt-1 leading-relaxed">{item.desc}</p>
+                            <h4 className="font-bold text-[#111111] text-lg">
+                              {item.title}
+                            </h4>
+                            <p className="text-xs text-[#676767] mt-1 leading-relaxed">
+                              {item.desc}
+                            </p>
                           </motion.div>
                         </Link>
                       ))}
@@ -84,35 +125,82 @@ const NavigationBar = () => {
 
                   {/* Expertise */}
                   <div className="w-[230px]">
-                    <motion.h3 
-                      initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}
+                    <motion.h3
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.2 }}
                       className="text-sm font-medium text-[#676767] mb-4"
                     >
                       Expertise:
                     </motion.h3>
                     <div className="flex flex-col gap-3">
                       {[
-                        { title: "AI Design", desc: "Expert Design Partners", icon: <FiCpu className="text-2xl" />, href: "/services/design" },
-                        { title: "Web & Mobile Dev", desc: "Scalable & Composable", icon: <FiCode className="text-2xl" />, href: "/services/development" },
-                        { title: "Private Tutoring", desc: "Empowering builders", icon: <FiBookOpen className="text-2xl" />, href: "/resources" }
+                        {
+                          title: "AI Design",
+                          desc: "Expert Design Partners",
+                          icon: <FiCpu className="text-2xl" />,
+                          href: "/services/design",
+                        },
+                        {
+                          title: "Web & Mobile Dev",
+                          desc: "Scalable & Composable",
+                          icon: <FiCode className="text-2xl" />,
+                          href: "/services/development",
+                        },
+                        {
+                          title: "Private Tutoring",
+                          desc: "Empowering builders",
+                          icon: <FiBookOpen className="text-2xl" />,
+                          href: "/resources",
+                        },
                       ].map((item, i) => (
-                        <Link href={item.href} key={i} className="block" onClick={() => setIsServicesOpen(false)}>
-                          <motion.div 
-                            initial="hidden" animate="visible" whileHover="hover"
+                        <Link
+                          href={item.href}
+                          key={i}
+                          className="block"
+                          onClick={() => setIsServicesOpen(false)}
+                        >
+                          <motion.div
+                            initial="hidden"
+                            animate="visible"
+                            whileHover="hover"
                             variants={{
                               hidden: { opacity: 0, x: 20 },
-                              visible: { opacity: 1, x: 0, transition: { delay: 0.25 + (i * 0.05) } },
-                              hover: { backgroundColor: "rgba(0,0,0,0.02)" }
+                              visible: {
+                                opacity: 1,
+                                x: 0,
+                                transition: { delay: 0.25 + i * 0.05 },
+                              },
+                              hover: { backgroundColor: "rgba(0,0,0,0.02)" },
                             }}
                             className="flex items-center p-3 rounded-2xl cursor-pointer border border-transparent hover:border-black/5 transition-colors overflow-hidden"
                           >
                             <motion.div
                               variants={{
-                                hidden: { width: 0, opacity: 0, marginRight: 0, x: -10 },
-                                visible: { width: 0, opacity: 0, marginRight: 0, x: -10 },
-                                hover: { width: 48, opacity: 1, marginRight: 12, x: 0 }
+                                hidden: {
+                                  width: 0,
+                                  opacity: 0,
+                                  marginRight: 0,
+                                  x: -10,
+                                },
+                                visible: {
+                                  width: 0,
+                                  opacity: 0,
+                                  marginRight: 0,
+                                  x: -10,
+                                },
+                                hover: {
+                                  width: 48,
+                                  opacity: 1,
+                                  marginRight: 12,
+                                  x: 0,
+                                },
                               }}
-                              transition={{ type: "tween", duration: 0.15, ease: "easeOut" }}
+                              transition={{
+                                type: "tween",
+                                duration: 0.15,
+                                ease: "easeOut",
+                              }}
                               className="overflow-hidden flex-shrink-0"
                             >
                               <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-black/60 shadow-sm border border-black/5">
@@ -123,12 +211,20 @@ const NavigationBar = () => {
                               variants={{
                                 hidden: { x: 0 },
                                 visible: { x: 0 },
-                                hover: { x: 2 }
+                                hover: { x: 2 },
                               }}
-                              transition={{ type: "tween", duration: 0.15, ease: "easeOut" }}
+                              transition={{
+                                type: "tween",
+                                duration: 0.15,
+                                ease: "easeOut",
+                              }}
                             >
-                              <h4 className="font-bold text-sm text-[#111111] whitespace-nowrap">{item.title}</h4>
-                              <p className="text-xs text-[#676767] whitespace-nowrap">{item.desc}</p>
+                              <h4 className="font-bold text-sm text-[#111111] whitespace-nowrap">
+                                {item.title}
+                              </h4>
+                              <p className="text-xs text-[#676767] whitespace-nowrap">
+                                {item.desc}
+                              </p>
                             </motion.div>
                           </motion.div>
                         </Link>
@@ -140,10 +236,16 @@ const NavigationBar = () => {
             </AnimatePresence>
           </div>
 
-          <Link href={"/projects"} className="text-[#676767] hover:text-black transition-colors duration-200">
+          <Link
+            href={"/projects"}
+            className="text-[#676767] hover:text-black transition-colors duration-200"
+          >
             Projects
           </Link>
-          <Link href={"/resources"} className="text-[#676767] hover:text-black transition-colors duration-200">
+          <Link
+            href={"/resources"}
+            className="text-[#676767] hover:text-black transition-colors duration-200"
+          >
             Resources
           </Link>
         </div>
@@ -152,9 +254,7 @@ const NavigationBar = () => {
         <div className="flex flex-row gap-2 items-center">
           {/* Get in touch Button */}
           <Link href="/contact" className="hidden lg:flex">
-            <button
-              className="bg-white text-[#111111] px-6 py-2 rounded-full cursor-pointer border border-black/10 hover:bg-gray-50 transition-all duration-300 font-semibold text-sm h-[45px] flex items-center justify-center"
-            >
+            <button className="bg-white text-[#111111] px-6 py-2 rounded-full cursor-pointer border border-black/10 hover:bg-gray-50 transition-all duration-300 font-semibold text-sm h-[45px] flex items-center justify-center">
               Get in touch
             </button>
           </Link>
@@ -192,52 +292,117 @@ const NavigationBar = () => {
         text-black px-10"
         >
           <div className="flex flex-col gap-8 px-2.5 py-1 w-fit justify-center">
-            <Link className="text-3xl font-bold hover:text-[#449AFA] transition-colors" href={"/about"} onClick={() => setIsOpen(false)}>
+            <Link
+              className="text-3xl font-bold hover:text-[#449AFA] transition-colors"
+              href={"/about"}
+              onClick={() => setIsOpen(false)}
+            >
               About Vwindi
             </Link>
             <div className="flex flex-col gap-4">
               <button
                 className="flex flex-row items-center justify-between w-full text-3xl font-bold hover:text-[#449AFA] transition-colors"
-                onClick={() => setActiveMobileSubmenu(activeMobileSubmenu === 'services' ? null : 'services')}
+                onClick={() =>
+                  setActiveMobileSubmenu(
+                    activeMobileSubmenu === "services" ? null : "services",
+                  )
+                }
               >
-                Services <IoIosArrowDown className={`transition-transform ${activeMobileSubmenu === 'services' ? 'rotate-180' : ''}`} />
+                Services{" "}
+                <IoIosArrowDown
+                  className={`transition-transform ${activeMobileSubmenu === "services" ? "rotate-180" : ""}`}
+                />
               </button>
-              
+
               <AnimatePresence>
-                {activeMobileSubmenu === 'services' && (
-                  <motion.div 
+                {activeMobileSubmenu === "services" && (
+                  <motion.div
                     initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
+                    animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    className="overflow-hidden pl-4 flex flex-col gap-4 border-l-2 border-black/5"
+                    className="overflow-hidden pl-4 flex flex-row items-center gap-5 border-l-2 border-black/5"
                   >
-                    <p className="text-sm text-[#676767] font-medium uppercase tracking-widest mt-2">Industries</p>
-                    <Link href="/services/enterprise" className="text-xl font-medium" onClick={() => setIsOpen(false)}>Enterprise</Link>
-                    <Link href="/services/startup" className="text-xl font-medium" onClick={() => setIsOpen(false)}>Startup</Link>
-                    <Link href="/services/ecommerce" className="text-xl font-medium" onClick={() => setIsOpen(false)}>E-commerce</Link>
-                    
-                    <p className="text-sm text-[#676767] font-medium uppercase tracking-widest mt-4">Expertise</p>
-                    <Link href="/services/design" className="text-xl font-medium" onClick={() => setIsOpen(false)}>AI Design</Link>
-                    <Link href="/services/development" className="text-xl font-medium" onClick={() => setIsOpen(false)}>Web & Mobile Dev</Link>
-                    <Link href="/resources" className="text-xl font-medium" onClick={() => setIsOpen(false)}>Private Tutoring</Link>
+                    <div className="flex flex-col gap-4">
+                      <p className="text-sm text-[#676767] font-medium uppercase tracking-widest mt-2">
+                        Industries
+                      </p>
+                      <Link
+                        href="/services/enterprise"
+                        className="text-xl font-medium"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Enterprise
+                      </Link>
+                      <Link
+                        href="/services/startup"
+                        className="text-xl font-medium"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Startup
+                      </Link>
+                      <Link
+                        href="/services/ecommerce"
+                        className="text-xl font-medium"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        E-commerce
+                      </Link>
+                    </div>
+
+                    <div className="flex flex-col gap-4">
+                      <p className="text-sm text-[#676767] font-medium uppercase tracking-widest mt-4">
+                        Expertise
+                      </p>
+                      <Link
+                        href="/services/design"
+                        className="text-xl font-medium"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        AI Design
+                      </Link>
+                      <Link
+                        href="/services/development"
+                        className="text-xl font-medium"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Web & Mobile Dev
+                      </Link>
+                      <Link
+                        href="/resources"
+                        className="text-xl font-medium"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Private Tutoring
+                      </Link>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
-            <Link href={"/projects"} className="text-3xl font-bold hover:text-[#449AFA] transition-colors" onClick={() => setIsOpen(false)}>
+            <Link
+              href={"/projects"}
+              className="text-3xl font-bold hover:text-[#449AFA] transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
               Projects
             </Link>
-            <Link href={"/resources"} className="text-3xl font-bold hover:text-[#449AFA] transition-colors" onClick={() => setIsOpen(false)}>
+            <Link
+              href={"/resources"}
+              className="text-3xl font-bold hover:text-[#449AFA] transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
               Resources
             </Link>
           </div>
 
           {/* Get in touch Button */}
           <div className="flex w-full mt-10">
-            <Link href="/contact" className="w-full" onClick={() => setIsOpen(false)}>
-              <button
-                className="bg-[#111111] text-white w-full py-4 rounded-full text-xl font-bold cursor-pointer transition-transform hover:scale-105 shadow-xl"
-              >
+            <Link
+              href="/contact"
+              className="w-full"
+              onClick={() => setIsOpen(false)}
+            >
+              <button className="bg-[#111111] text-white w-full py-4 rounded-full text-xl font-bold cursor-pointer transition-transform hover:scale-105 shadow-xl">
                 Get in touch
               </button>
             </Link>

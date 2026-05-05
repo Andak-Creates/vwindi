@@ -5,17 +5,17 @@ import Footer from "@/components/Footer";
 
 const Showreel = () => {
   return (
-    <section className="relative pt-48 pb-20 px-20 overflow-hidden bg-white text-center">
+    <section className="relative pt-32 pb-20 px-10 md:px-20 overflow-hidden bg-white text-center">
       <div className="wind-glow top-1/4 left-1/2 -translate-x-1/2 opacity-20" />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         className="max-w-5xl mx-auto z-10 relative"
       >
-        <div className="mb-6 inline-block bg-white/60 backdrop-blur-xl border border-black/5 px-6 py-2 rounded-full shadow-sm text-sm font-bold uppercase tracking-widest text-[#676767]">
+        <div className="mb-5 inline-block bg-white/60 backdrop-blur-xl border border-black/5 px-6 py-2 rounded-full shadow-sm text-[10px] font-bold uppercase tracking-widest text-[#676767]">
           Vwindi Tutoring
         </div>
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[#111111] mb-12">
+        <h1 className="text-5xl md:text-[55px] font-bold leading-[1.01] tracking-tight text-[#111111] mb-12">
           Learn from the builders.
         </h1>
         
@@ -44,7 +44,7 @@ const ResourcesGrid = () => {
   ];
 
   return (
-    <section className="py-32 px-20 bg-[#f9f9f9] border-t border-black/5">
+    <section className="py-32 px-10 md:px-20 bg-[#f9f9f9] border-t border-black/5">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold tracking-tight mb-16">Latest Insights & Resources</h2>
         

@@ -21,7 +21,7 @@ export default function StartupPage() {
           title="The MVP Sprint." 
           desc="Focus on your core value proposition. We'll handle the entire technical stack from design to deployment." 
         />
-        <div className="max-w-7xl mx-auto px-20 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="max-w-7xl mx-auto px-10 md:px-20 grid grid-cols-1 md:grid-cols-2 gap-6">
           <FeatureCardDark icon="🏁" title="Rapid MVP Launch" desc="Getting your product into the hands of users in weeks, not months, to gather critical market feedback." />
           <FeatureCardDark icon="🛠️" title="Agile Development" desc="Iterative building cycles that allow you to pivot your features based on real-world usage data." />
         </div>
@@ -32,7 +32,7 @@ export default function StartupPage() {
           title="Scale Ready From Day One." 
           desc="We build with future growth in mind, so you won't have to rewrite everything when you hit your first 10,000 users." 
         />
-        <div className="max-w-7xl mx-auto px-20 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="max-w-7xl mx-auto px-10 md:px-20 grid grid-cols-1 md:grid-cols-2 gap-6">
           <FeatureCardLight icon="🚀" title="Scalable Tech Stack" desc="Using modern, battle-tested technologies that can handle rapid growth without breaking." />
           <FeatureCardLight icon="📈" title="Analytics Integrated" desc="Full tracking from day one so you know exactly how users are interacting with your product." />
         </div>
